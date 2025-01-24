@@ -4,8 +4,11 @@
   "main": "index.js",
   "scripts": {
     "script": "npx hardhat run scripts/run.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "npx hardhat run scripts/deploy.ts --network sepolia"
+    "test": "npx hardhat test",
+    "deploy": "npx hardhat run scripts/deploy.ts --network sepolia",
+    "deploy:localhost": "npx hardhat run scripts/deploy.ts --network localhost",
+    "start": "npx hardhat node",
+    "compile": "npx hardhat"
   },
   "keywords": [],
   "author": "",
