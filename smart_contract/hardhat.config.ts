@@ -1,6 +1,11 @@
 import { HardhatUserConfig, task } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
+import "@nomiclabs/hardhat-ethers";
+import "@typechain/hardhat";
+import '@openzeppelin/hardhat-upgrades';
+import '@nomiclabs/hardhat-etherscan';
+// import * as dotenv from 'dotenv';
 
 const accounts = async(args: string, hre: HardhatRuntimeEnvironment) => {
   const accounts = await hre.ethers.getSigners();
@@ -12,15 +17,33 @@ const accounts = async(args: string, hre: HardhatRuntimeEnvironment) => {
 task("accounts", "Prints the list of accounts", accounts);
 
 module.exports = {
-  solidity: "0.8.20",
+  solidity: "0.8.28",
 }
 
 const config: HardhatUserConfig = {
-  solidity: "0.8.20",
+  solidity: "0.8.28",
   networks: {
+    basesepolia: {
+      url: "https://base-sepolia.blockpi.network/v1/rpc/public",
+      accounts: [process.env.DEPLOYER_PRIVATE_KEY ?? ""],
+    },
     localhost: { allowUnlimitedContractSize: true },
-    hardhat: { allowUnlimitedContractSize: true },
   },
+  etherscan: {
+    apiKey: {
+      basesepolia: ""
+    },
+    customChains: [
+      {
+        network: "basesepolia",
+        chainId: 84532,
+        urls: {
+          apiURL: "https://api-sepolia.basescan.org/api",
+          browserURL: "https://sepolia.basescan.org"
+        },
+      },
+    ]
+  }
 };
 
 export default config;
