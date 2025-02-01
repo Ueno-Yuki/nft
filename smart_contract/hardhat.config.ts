@@ -1,10 +1,10 @@
 import { HardhatUserConfig, task } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
-import "@nomiclabs/hardhat-ethers";
+import "@nomicfoundation/hardhat-ethers";
 import "@typechain/hardhat";
 import '@openzeppelin/hardhat-upgrades';
-import '@nomiclabs/hardhat-etherscan';
+import '@nomicfoundation/hardhat-verify';
 // import * as dotenv from 'dotenv';
 
 const accounts = async(args: string, hre: HardhatRuntimeEnvironment) => {

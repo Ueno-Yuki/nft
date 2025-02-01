@@ -9,7 +9,7 @@ contract MYNFT is ERC721, ERC721URIStorage, Ownable {
   
   uint256 public tokenId;
 
-  constructor(address initialOwner) Ownable() ERC721("MYNFT", "MNFT") {}
+  constructor(address initialOwner) Ownable(initialOwner) ERC721("MYNFT", "MNFT") {}
 
   function mint(string memory uri) public {
     _safeMint(msg.sender, tokenId);
@@ -31,10 +31,6 @@ contract MYNFT is ERC721, ERC721URIStorage, Ownable {
     returns (string memory)
   {
     return super.tokenURI(_tokenId);
-  }
-
-  function _burn(uint256 _tokenId) internal override(ERC721, ERC721URIStorage) {
-    super._burn(_tokenId);
   }
 
   function totalSupply() public view returns (uint256) {
