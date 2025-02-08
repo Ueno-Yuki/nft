@@ -3,7 +3,7 @@ import Image from 'next/image'
 export default function Home() {
   return (
     <div className='h-4/5'>
-      <h1 className='mx-auto mt-3 text-center text-4xl'>Let&aposs Mint Generative NFT</h1>
+      <h1 className='mx-auto mt-3 text-center text-4xl'>Let&apos;s Mint Generative NFT</h1>
       <p className='mt-2 mb-3 font-bold-500 text-center'>contract address: </p>
       <aside className="w-full md:w-1/3 flex flex-col items-center px-3 md:pl-6 mx-auto">
         <div className="bg-white shadow-md rounded-xl p-4 mb-6 mt-4">
