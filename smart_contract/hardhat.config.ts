@@ -31,11 +31,11 @@ const config: HardhatUserConfig = {
   },
   etherscan: {
     apiKey: {
-      basesepolia: ""
+      basesepolia: "87U2D2H9S1DJYJPSKT7JUSBT2CQ9VRT65M"
     },
     customChains: [
       {
-        network: "basesepolia",
+        network: "baseSepolia",
         chainId: 84532,
         urls: {
           apiURL: "https://api-sepolia.basescan.org/api",

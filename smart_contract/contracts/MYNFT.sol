@@ -33,7 +33,7 @@ contract MYNFT is ERC721, ERC721URIStorage, Ownable {
     return super.tokenURI(_tokenId);
   }
 
-  function totalSupply() public view returns (uint256) {
+  function totalSupply() public pure returns (uint256) {
     return 10000;
   }
 }
