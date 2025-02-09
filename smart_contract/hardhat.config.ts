@@ -5,8 +5,9 @@ import "@nomicfoundation/hardhat-ethers";
 import "@typechain/hardhat";
 import '@openzeppelin/hardhat-upgrades';
 import '@nomicfoundation/hardhat-verify';
-// import * as dotenv from 'dotenv';
+import * as dotenv from 'dotenv';
 
+dotenv.config();
 const accounts = async(args: string, hre: HardhatRuntimeEnvironment) => {
   const accounts = await hre.ethers.getSigners();
   for ( const account of accounts ) {
@@ -16,16 +17,13 @@ const accounts = async(args: string, hre: HardhatRuntimeEnvironment) => {
 
 task("accounts", "Prints the list of accounts", accounts);
 
-module.exports = {
-  solidity: "0.8.28",
-}
-
 const config: HardhatUserConfig = {
   solidity: "0.8.28",
   networks: {
     basesepolia: {
-      url: "https://base-sepolia.blockpi.network/v1/rpc/public",
+      url: "https://sepolia.base.org",
       accounts: [process.env.DEPLOYER_PRIVATE_KEY ?? ""],
+      timeout: 100000
     },
     localhost: { allowUnlimitedContractSize: true },
   },
@@ -35,7 +33,7 @@ const config: HardhatUserConfig = {
     },
     customChains: [
       {
-        network: "baseSepolia",
+        network: "basesepolia",
         chainId: 84532,
         urls: {
           apiURL: "https://api-sepolia.basescan.org/api",

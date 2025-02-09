@@ -2,9 +2,9 @@ import { ethers } from "hardhat";
 
 const main = async() => {
   const [deployer] = await ethers.getSigners();
-  const accountBalance = await deployer.provider.getBalance(deployer.address);
   const echoContractFactory = await ethers.getContractFactory("MYNFT");
   const echoContract = await echoContractFactory.deploy(deployer.address);
+  const accountBalance = await echoContract.balanceOf(deployer.address);
   const ethEcho = await echoContract.waitForDeployment();
   
   console.log("Deploying contracts with account: ", deployer.address);
