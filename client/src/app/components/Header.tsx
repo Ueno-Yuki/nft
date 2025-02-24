@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import { connectWallet } from '../contexts/TransactionContext'
 
 const Header = () => {
   return (
@@ -14,7 +15,7 @@ const Header = () => {
       </div>
       <div>
         <nav className='text-sm font-medium'>
-          <Link href="/articles/new" className='bg-orange-300 px-3 py-3 rounded-md'>Connect Wallet</Link>
+          <Link href="/articles/new" className='bg-orange-300 px-3 py-3 rounded-md' onClick={connectWallet}>Connect Wallet</Link>
         </nav>
       </div>
     </header>

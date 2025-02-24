@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import Header from './Header'
-import Footer from './Footer'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import { TransactionContext, TransactionProvier } from './contexts/TransactionContext'
 
 
 export const metadata: Metadata = {
@@ -17,9 +18,11 @@ export default function RootLayout({
   return (
     <html lang="ja" className='h-full'>
       <body className='container mx-auto bg-slate-700 text-slate-50 h-full'>
-        <Header />
-        {children}
-        <Footer />
+        <TransactionProvier>
+          <Header />
+          {children}
+          <Footer />
+        </TransactionProvier>
         </body>
     </html>
   )
