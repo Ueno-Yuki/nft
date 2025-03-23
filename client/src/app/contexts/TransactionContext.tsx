@@ -7,16 +7,15 @@ export const TransactionContext = createContext({});
 
 declare global {
   interface Window {
-    ethereum? : any;
+    ethereum: any;
   }
 }
-const ethereum: any = window.ethereum;
 
 /** 
  * スマートコントラクトを取得する
  */
 const getSmartContract = async () => {
-  const provider = new ethers.BrowserProvider(ethereum as ethers.Eip1193Provider);
+  const provider = new ethers.BrowserProvider(window.ethereum as ethers.Eip1193Provider);
   const signer = provider.getSigner();
   const transactionContract = new ethers.Contract(contractAddress, contractABI, await signer);
 
@@ -27,11 +26,11 @@ const getSmartContract = async () => {
  * メタマスクウォレットと連携する
  */
 export const connectWallet = async() => {
-  if (!ethereum) return alert("メタマスクをインストールしてください");
+  if (!window.ethereum) return alert("メタマスクをインストールしてください");
 
   // メタマスクを持って入れば接続を開始する
   try {
-    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts'});
     console.log(accounts[0]);
     console.log(accounts);
   } catch (err: unknown) {
@@ -45,10 +44,10 @@ export const TransactionProvier = ({children}: any) => {
    * メタマスクと連携済みかチェックする
    */ 
   const checkMetaMaskWalletConnected = async() => {
-    if ( !ethereum ) return alert('先にメタマスクをインストールしてください！');
+    if ( !window.ethereum ) return alert('先にメタマスクをインストールしてください！');
 
     // メタマスクのアカウントIDを取得する
-    const accounts = await ethereum.request({method: 'eth_accounts'});
+    const accounts = await window.ethereum.request({method: 'eth_accounts'});
     console.log(accounts);
   }
 
@@ -60,6 +59,9 @@ export const TransactionProvier = ({children}: any) => {
 
   useEffect(() => {
     checkMetaMaskWalletConnected();
+    if ( typeof window !== 'undefined' ) {
+      const { innerHeight: height, innerWidth: width } = window;
+    }
   }, []);
 
   return <TransactionContext.Provider value={{connectWallet, MintNft}}>{children}</TransactionContext.Provider>;

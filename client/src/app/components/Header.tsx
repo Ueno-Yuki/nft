@@ -10,7 +10,7 @@ const Header = () => {
           <Link href="/">Top</Link>
         </h1>
         <h1 className='header-list'>
-          <Link href="/articles">Articles</Link>
+          <Link href="/nft-items">NFTs</Link>
         </h1>
       </div>
       <div>
