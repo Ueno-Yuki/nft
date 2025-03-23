@@ -29,6 +29,9 @@
   },
   "dependencies": {
     "@openzeppelin/contracts": "^5.2.0",
-    "dotenv": "^16.4.7"
+    "dotenv": "^16.4.7",
+    "operator-filter-registry": "^1.4.2",
+    "solgraph": "^0.3.3",
+    "solidity-coverage": "0.8.2"
   }
 }
