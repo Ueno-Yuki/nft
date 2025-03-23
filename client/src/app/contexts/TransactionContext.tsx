@@ -5,11 +5,12 @@ import { contractABI, contractAddress } from '../utils/connect';
 
 export const TransactionContext = createContext({});
 
+declare global {
+  interface Window {
+    ethereum? : any;
+  }
+}
 const ethereum: any = window.ethereum;
-// let ethereum: (Window & typeof globalThis) | ethers.Eip1193Provider;
-// if ( window !== undefined ) {
-//   ethereum = window.ethereum;
-// }
 
 /** 
  * スマートコントラクトを取得する

@@ -15,7 +15,7 @@ const Header = () => {
       </div>
       <div>
         <nav className='text-sm font-medium'>
-          <Link href="/articles/new" className='bg-orange-300 px-3 py-3 rounded-md' onClick={connectWallet}>Connect Wallet</Link>
+          <button className='bg-orange-300 px-3 py-3 rounded-md' onClick={connectWallet}>Connect Wallet</button>
         </nav>
       </div>
     </header>
