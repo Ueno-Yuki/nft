@@ -53,8 +53,8 @@ export const TransactionProvier = ({children}: any) => {
 
 
   // TODO NFTを発行する
-  const MintNft = async() => {
-
+  const GetNft = async() => {
+    
   }
 
   useEffect(() => {
@@ -64,5 +64,5 @@ export const TransactionProvier = ({children}: any) => {
     }
   }, []);
 
-  return <TransactionContext.Provider value={{connectWallet, MintNft}}>{children}</TransactionContext.Provider>;
+  return <TransactionContext.Provider value={{connectWallet, GetNft}}>{children}</TransactionContext.Provider>;
 }

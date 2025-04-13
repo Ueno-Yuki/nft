@@ -1,7 +1,6 @@
 import { ethers } from "hardhat";
 
 const main = async() => {
-  const baseTokenURI = "";
   const [deployer] = await ethers.getSigners();
   const contractFactory = await ethers.getContractFactory("MYNFT");
   const contract = await contractFactory.deploy();

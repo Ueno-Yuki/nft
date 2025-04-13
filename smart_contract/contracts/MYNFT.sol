@@ -23,7 +23,7 @@ contract MYNFT is ERC721Enumerable, Ownable {
   string public baseURI;
 
   constructor() Ownable(msg.sender) ERC721("MYNFT", "MNFT") {
-    setBaseURI('');
+    setBaseURI('https://nftimagesdemo.s3.ap-northeast-1.amazonaws.com/images/collection/');
   }
 
   function mint(uint256 _mintAmount) public payable {
