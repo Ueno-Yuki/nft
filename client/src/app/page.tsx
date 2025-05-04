@@ -51,14 +51,14 @@ const View: NextPage = () => {
         await (window as any).ethereum.request({
           method: 'wallet_addEthereumChain',
           params: [{
-            chainId: '0x5',
-            chainName: 'sepolia',
+            chainId: 84532,
+            chainName: 'basesepolia',
             nativeCurrency: {
               name: 'ETH',
               symbol: 'ETH',
               decimals: 5,
             },
-            rpcUrls: ['https://goerli.infura.io/v3/20cd5bade2c0407da65c6811cc2a1b37'],
+            rpcUrls: ['https://api-sepolia.basescan.org/api'],
           }],
         });
         console.log('try');
