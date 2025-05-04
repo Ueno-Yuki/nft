@@ -13,11 +13,6 @@ const Header = () => {
           <Link href="/nft-items">NFTs</Link>
         </h1>
       </div>
-      <div>
-        <nav className='text-sm font-medium'>
-          <button className='bg-orange-300 px-3 py-3 rounded-md' onClick={connectWallet}>Connect Wallet</button>
-        </nav>
-      </div>
     </header>
   )
 }

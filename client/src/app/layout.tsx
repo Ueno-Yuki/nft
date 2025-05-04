@@ -19,9 +19,7 @@ export default function RootLayout({
     <html lang="ja" className='h-full'>
       <body className='container mx-auto bg-slate-700 text-slate-50 h-full'>
         <TransactionProvier>
-          <Header />
           {children}
-          <Footer />
         </TransactionProvier>
         </body>
     </html>
